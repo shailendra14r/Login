@@ -37,4 +37,5 @@ DbConnection()
     .catch(()=>{console.log('Cannot connect to database')});
 
 
-module.exports = app;
+export default app;
+
