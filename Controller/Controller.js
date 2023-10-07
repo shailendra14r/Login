@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import User from '../Model/userSchema.js';
 import dotenv from 'dotenv';
 
+dotenv.config();
+
 
 // POST:  http://localhost:8080/api/register
 /**
@@ -85,7 +87,7 @@ export async function login(req,res){
                             if(!passwordCheck) res.status(400).send({"message":"Invalid Credentials"});
                             else{
                                 try{
-                                    jwt.sign({userId : user._id, email : user.email}, dotenv.config().parsed.SECRET_KEY, { expiresIn:'6h'}, (error, token)=>{
+                                    jwt.sign({userId : user._id, email : user.email}, process.env.SECRET_KEY, { expiresIn:'6h'}, (error, token)=>{
                                         if(!error){
                                             res.status(200).cookie('token', token).send({"message" : "Login Successfull"});
                                         }
