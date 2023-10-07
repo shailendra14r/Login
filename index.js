@@ -7,7 +7,8 @@ import dotenv from 'dotenv';
 import cookieParsser from 'cookie-parser';
 
 const app = express();
-const port = dotenv.config().parsed.PORT;
+dotenv.config();
+const port = process.env.PORT;
 
 
 // To Allow requests from different server
