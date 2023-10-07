@@ -21,8 +21,6 @@ app.use(morgan('tiny'));
 // Routes
 app.use('/api', router);
 
-export default app;
-
 // DB connection 
 DbConnection()
     .then(()=>{
@@ -37,3 +35,6 @@ DbConnection()
         }
     })
     .catch(()=>{console.log('Cannot connect to database')});
+
+
+module.exports = app;
